@@ -1,0 +1,31 @@
+
+
+# Project
+dotnet new console -lang c#
+
+# show errors
+fake //error
+dotnet fake // error
+
+# Edit
+  <ItemGroup>
+    <DotNetCliToolReference Include="dotnet-fake" Version="5.0.0-beta014" />
+  </ItemGroup>
+
+dotnet restore
+dotnet fake --version
+
+
+#r "paket:
+nuget Fake.Core.Target
+nuget Fake.DotNet.Cli
+//"
+
+dotnet fake run fake5.fsx
+# dotnet fake build
+// Add 
+#load ".fake/fake5.fsx/intellisense.fsx"
+
+# Show chocolatey
+
+# Show .zip package
