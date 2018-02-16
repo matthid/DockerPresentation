@@ -256,6 +256,8 @@ Ist `docker` perfekt.
 
 ### Thanks / Resources
 
+Feedback
+
 - [Introduction to Docker](https://www.slideshare.net/Docker/introduction-to-docker-2017)
 - [Docker Intro](https://www.slideshare.net/dotCloud/docker-intro-november)
 - [Docker Intro](http://pointful.github.io/docker-intro)
