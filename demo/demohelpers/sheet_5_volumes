@@ -1,0 +1,23 @@
+
+# Volumes
+
+cmd //C echo /c/proj
+# not portable!
+docker run --rm --mount type=bind,source=C:/proj,dst=/data ubuntu ls /data
+
+
+# oder später rexray plugin
+docker volume create -d local my_volume
+docker volume ls
+
+# portable when volume is available everywhere
+docker run --rm --mount type=volume,source=my_volume,dst=//data -ti ubuntu
+
+echo "test" > /data/test
+ls -asl /data
+exit
+
+# Same image, new container!
+docker run --rm --mount type=volume,source=my_volume,dst=//data -ti ubuntu
+cat /data/test
+exit

@@ -1,0 +1,12 @@
+
+# Dockerfile
+
+touch Dockerfile
+
+```
+FROM ubuntu
+Run echo "Test" > /test
+```
+
+docker run -ti my_image
+

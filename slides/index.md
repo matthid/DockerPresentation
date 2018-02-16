@@ -24,7 +24,7 @@ type PostalAddress = string
 ### Roadmap
 
  - **Was ist Docker?**
- - Wie erstelle ich images?
+ - Wie erstelle ich container/images?
  - Was ist Docker Swarm?
  - Netzwerke und Ports?
  - Persistierung und Konfiguration?
@@ -109,7 +109,7 @@ type PostalAddress = string
 ### Roadmap
 
  - Was ist Docker?
- - **Wie erstelle ich images?**
+ - **Wie erstelle ich container/images?**
  - Was ist Docker Swarm?
  - Netzwerke und Ports?
  - Persistierung und Konfiguration?
@@ -118,6 +118,140 @@ type PostalAddress = string
 
 ### Demo
 
+Docker Commit
+
+---
+
+### Demo
+
+[Dockerfile](https://docs.docker.com/engine/reference/builder/)
+
+---
+
+### Beispiel elk-stack
+
+![Docker ELK Stack](images/docker_elk_download.png)
+
+---
+
+### Beispiel yaaf-backend
+
+Dockerfile Teamspeak
+
+***
+
+### Roadmap
+
+ - Was ist Docker?
+ - Wie erstelle ich container/images?
+ - **Was ist Docker Swarm?**
+ - Netzwerke und Ports?
+ - Persistierung und Konfiguration?
+
+---
+
+### Docker Ecosystem
+
+- Client <-> Server
+- Docker Machine: Tool to create docker server
+- Docker Swarm (`docker service`): Tool to manage multiple docker servers
+
+---
+
+### Demo Docker Machine
+
+...
+
+---
+
+### Docker Swarm
+
+- docker service create
+- Skalierung von services
+- Automatischer Neustart
+- Verteilung auf die docker server
+- Ausrollen von Updates
+- Transparent nach außen (als ein host)
+
+' Herunterfahren/Crash von einzellnen (Physikalischen) Machinen möglich, falls richtig konfiguriert
+...
+
+***
+
+### Roadmap
+
+ - Was ist Docker?
+ - Wie erstelle ich container/images?
+ - Was ist Docker Swarm?
+ - **Netzwerke und Ports?**
+ - Persistierung und Konfiguration?
+
+---
+
+### docker network
+
+- Erstellen von virtuellen Netzwerken
+- Erstellen von Netzwerken im "Swarm" (`overlay`)
+- "Host" Netzwerk verfügbar
+
+---
+
+### Container <-> Netzwerk
+
+- Container können Netzwerken zugeordnet werden
+- Docker regelt Port-Forwards
+
+***
+
+### Roadmap
+
+ - Was ist Docker?
+ - Wie erstelle ich container/images?
+ - Was ist Docker Swarm?
+ - Netzwerke und Ports?
+ - **Persistierung und Konfiguration?**
+
+---
+
+### Motivation
+
+- Ohne Persistierung
+- Ohne Konfiguration
+
+Ist `docker` perfekt.
+
+---
+
+### Konfiguration
+
+- Ein Container stellt die Konfiguration via API bereit
+  Problem: Passwörter, Zertifikate, ...
+  Es gibt fertige Lösungen (zb "Vault"), die aber teilweise komplex sind
+- Via Cloud, zB (Azure Key Vault)
+  Anbindung in Containern ggf. immer noch Aufwand
+
+---
+
+### Persistierung
+
+- "Volume"- Plugins (Beispiel rexray)
+- Via Cloud, zB (SQL-Service,  ...)
+  Anbindung in Containern ggf. immer noch Aufwand
+
+---
+
+### Demo - Persistierung
+
+`--mount type=bind,source=C:/proj,dst=/data`
+
+---
+
+### Clustermanagement
+
+- Mögliche Lösung mit rexray (aktuell AWS)
+- Vorgabe/Lösung für Konfiguration und Persistierung
+- Keine besondere Absicherung im Betrieb (Annahme: Der ClusterManagement-Server ist nur durch Container erreichbar)
+
 ***
 
 ### Thanks / Resources
@@ -125,6 +259,10 @@ type PostalAddress = string
 - [Introduction to Docker](https://www.slideshare.net/Docker/introduction-to-docker-2017)
 - [Docker Intro](https://www.slideshare.net/dotCloud/docker-intro-november)
 - [Docker Intro](http://pointful.github.io/docker-intro)
+- [Docker Machine](https://blog.codeship.com/docker-machine-compose-and-swarm-how-they-work-together/)
+- [Docker run](https://docs.docker.com/engine/reference/run/)
+- [Rexray](https://rexray.thecodeteam.com/)
+- [Volumes](https://docs.docker.com/storage/volumes/)
 
 ***
 

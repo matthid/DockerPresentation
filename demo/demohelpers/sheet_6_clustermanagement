@@ -1,0 +1,24 @@
+cd /c/proj/yaaf-backend
+. scripts/config.sh
+
+cm --help
+
+cname=demo-teamspeak
+cm cluster createnew -c $cname -p 'mypw123'
+cm config copy --source shared-config --dest $cname
+for f in temp/ssh/*; do cm config upload -c $cname --name "teamspeak/$(basename "$f")" -f "$f"; done
+
+cm -v init -c $cname
+
+cm run -c $cname --script Dns/deploy.fsx
+cm -v run -c $cname --script Teamspeak/deploy.fsx
+
+
+INTERACTIVE=y cm docker-machine -c $cname -- ssh $cname-master-01
+sudo -s
+docker service ls
+exit
+
+cm docker-machine -c $cname -- inspect $cname-master-01
+
+# Ip: 

@@ -1,0 +1,25 @@
+
+# Docker commit
+
+docker run -ti ubuntu
+echo "test" > test
+cat test
+
+  docker ps
+
+exit
+
+docker run -ti ubuntu
+
+cat test
+echo "test2" > test
+cat test
+
+  docker ps
+  docker commit <name> my_image
+
+exit
+docker run -ti my_image
+cat test
+
+docker rmi -f my_image

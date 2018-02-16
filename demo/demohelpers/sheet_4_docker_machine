@@ -1,0 +1,8 @@
+# Docker machine
+
+# docker-machine create --driver hyperv mycontainerhost
+
+eval "$(docker-machine env mycontainerhost)"
+
+docker images
+docker ps
