@@ -1,4 +1,4 @@
-# F# presentation
+# Docker presentation
 
 Git bash / Unix:
 
